@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const renderer = require('vue-server-renderer').createRenderer();
+// const App = require(path.join(__dirname, './src/components/App/App.vue'))
+
+
 
 app.use(express.static(path.join(__dirname, '/dist')));
 
@@ -11,12 +14,15 @@ app.use((error, req, res, next) => {
     console.log(error, req, res, next);
 });
 
-app.get('*', function (req, res) {
-    // res.render('./js/app.4c75190.js')
+// app.get('/', function (req, res) {
+//     res.render('js/app.4c75190.js')
+// });
 
-    renderer.renderToString(app, (err, html) => {
+app.get('/about', function (req, res) {
+    renderer.renderToString(App, (err, html) => {
+        console.log(err)
         if (err) {
-            res.status(500).end('Внутренняя ошибка сервера')
+            res.status(500).end('internal error')
             return
         }
         res.end(`
