@@ -1,12 +1,20 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const renderer = require('vue-server-renderer').createRenderer();
-// const App = require(path.join(__dirname, './src/components/App/App.vue'))
-
-
+const {createBundleRenderer} = require('vue-server-renderer')
+const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+const template = require('fs').readFileSync(path.join(__dirname,'./public/index.html'), 'utf-8')
 
 app.use(express.static(path.join(__dirname, '/dist')));
+
+const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
+
+const renderer = createBundleRenderer(JSONforServer, {
+    runInNewContext: false, // рекомендуется
+    template,
+
+    clientManifest
+})
 
 
 app.use((error, req, res, next) => {
@@ -14,26 +22,18 @@ app.use((error, req, res, next) => {
     console.log(error, req, res, next);
 });
 
-// app.get('/', function (req, res) {
-//     res.render('js/app.4c75190.js')
-// });
+app.get('*', (req, res) => {
+    const context = {url: req.url}
+    // const appVue = createApp(context)
 
-app.get('/about', function (req, res) {
-    renderer.renderToString(App, (err, html) => {
-        console.log(err)
-        if (err) {
-            res.status(500).end('internal error')
-            return
-        }
-        res.end(`
-      <!DOCTYPE html>
-      <html lang="en">
-        <head><title>Привет</title></head>
-        <body>${html}</body>
-      </html>
-    `)
+    renderer.renderToString(context, (err, html) => {
+
+        // обработка ошибок...
+        console.log("Ошибка:", err)
+        console.log("Html:", html)
+        res.end(html)
     })
-});
+})
 
 
 app.listen(2000, () => {

@@ -7,9 +7,9 @@
 
 <script>
     import Nav
-        from '../Nav/Nav'
+        from '../Nav/Nav.vue'
     import Content
-        from '../Content/Content'
+        from '../Content/Content.vue'
 
     export default {
         name: 'App',
