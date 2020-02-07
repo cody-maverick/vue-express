@@ -11,7 +11,7 @@ const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
 
 const renderer = createBundleRenderer(JSONforServer, {
     runInNewContext: false, // рекомендуется
-    inject: false,
+    // inject: false,
     template,
     clientManifest
 })
