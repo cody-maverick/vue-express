@@ -16,6 +16,8 @@
         components: {
             Nav,
             Content
+        },
+        beforeCreate: () => {
         }
     }
 </script>

@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const {createBundleRenderer} = require('vue-server-renderer')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
-const template = require('fs').readFileSync(path.join(__dirname,'./public/index.html'), 'utf-8')
+const template = require('fs').readFileSync(path.join(__dirname,'./public/ssrhtml.html'), 'utf-8')
 
 app.use(express.static(path.join(__dirname, '/dist')));
 
@@ -11,16 +11,16 @@ const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
 
 const renderer = createBundleRenderer(JSONforServer, {
     runInNewContext: false, // рекомендуется
+    inject: false,
     template,
-
     clientManifest
 })
 
 
-app.use((error, req, res, next) => {
-    // Ошибка, выдаваемая в ответ на неправильно сформированный запрос
-    console.log(error, req, res, next);
-});
+// app.use((error, req, res, next) => {
+//     // Ошибка, выдаваемая в ответ на неправильно сформированный запрос
+//     console.log(error, req, res, next);
+// });
 
 app.get('*', (req, res) => {
     const context = {url: req.url}
