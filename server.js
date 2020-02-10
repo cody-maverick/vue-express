@@ -4,15 +4,14 @@ const path = require('path');
 const {createRenderer} = require('vue-server-renderer')
 // const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 const bundle = require('./dist/server.bundle.js');
-const template = require('fs').readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
+const fs = require('fs')
+const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
+const favicon = require('serve-favicon')
 
 server.use(express.static(path.join(__dirname, '/dist')));
-
-// const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
-
-
+server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 const renderer = createRenderer({
-    // runInNewContext: true, // рекомендуется
+    runInNewContext: true, // рекомендуется
     // inject: false,
     template,
 })
@@ -35,10 +34,14 @@ server.get('*', (req, res) => {
         renderer.renderToString(app, context, function (err, html) {
             // обработка ошибок...
             if (err) {
-                console.log("Ошибка:", err)
+                if (err.code === 404) {
+                    res.status(404).end('Page not found')
+                } else {
+                    res.status(500).end('Internal Server Error')
+                }
+            } else {
+                res.end(html)
             }
-            // console.log("Html:", html)
-            res.end(html)
         }, err => {
             console.log(err)
         })

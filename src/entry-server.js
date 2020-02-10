@@ -8,7 +8,7 @@ export default context => {
     return new Promise((resolve, reject) => {
         const { app, router } = createApp()
 
-        console.log(context)
+        console.log(context.url)
         // устанавливаем маршрут для маршрутизатора серверной части
         router.push(context.url)
 
@@ -16,7 +16,6 @@ export default context => {
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents()
             // нет подходящих маршрутов, отклоняем с 404
-
 
             if (!matchedComponents.length) {
                 return reject({ code: 404 })
