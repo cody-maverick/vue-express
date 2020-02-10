@@ -1,5 +1,6 @@
 const express = require('express');
 const server = express();
+const compression = require('compression')
 const path = require('path');
 const {createRenderer} = require('vue-server-renderer')
 // const clientManifest = require('./dist/vue-ssr-client-manifest.json')
@@ -8,6 +9,7 @@ const fs = require('fs')
 const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
 const favicon = require('serve-favicon')
 
+server.use(compression())
 server.use(express.static(path.join(__dirname, '/dist')));
 server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 const renderer = createRenderer({
