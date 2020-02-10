@@ -59,6 +59,5 @@ module.exports = {
         //     template: "./public/index.html"
         // }),
         new VueLoaderPlugin()
-    ],
-
+    ]
 }
