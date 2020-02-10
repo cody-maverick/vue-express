@@ -3,7 +3,6 @@ const server = express();
 const compression = require('compression')
 const path = require('path');
 const {createRenderer} = require('vue-server-renderer')
-// const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 const bundle = require('./dist/server.bundle.js');
 const fs = require('fs')
 const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
@@ -13,13 +12,10 @@ server.use(compression())
 server.use(express.static(path.join(__dirname, '/dist')));
 server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 const renderer = createRenderer({
-    runInNewContext: true, // рекомендуется
-    // inject: false,
+    // runInNewContext: true, // рекомендуется
+    // // inject: false,
     template,
 })
-
-
-// const createApp = require('./dist/main.js')
 
 server.get('*', (req, res) => {
     // const context = {url: req.url}
