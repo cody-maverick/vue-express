@@ -9,14 +9,14 @@ import {createRouter}
 import Meta from 'vue-meta'
 
 Vue.use(VueRouter)
-Vue.use(Meta)
+// Vue.use(Meta)
 
 
-export function createApp(context) {
+export function createApp() {
     // Создаём экземпляр маршрутизатора
 
 
-    const router = createRouter(context);
+    const router = createRouter();
     const app = new Vue({
         // внедряем маршрутизатор в корневой экземпляр Vue
         router,

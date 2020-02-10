@@ -1,7 +1,6 @@
-const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config.js')
-const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
+// const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 
 module.exports = merge(baseConfig, {
     entry: './src/entry-client.js',
@@ -14,6 +13,6 @@ module.exports = merge(baseConfig, {
         //     minChunks: Infinity
         // }),
         // Плагин генерирует `vue-ssr-client-manifest.json` в output-каталоге
-        new VueSSRClientPlugin()
+        // new VueSSRClientPlugin()
     ]
 })

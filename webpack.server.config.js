@@ -1,4 +1,5 @@
 const merge = require('webpack-merge')
+const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 const baseConfig = require('./webpack.base.config.js')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
@@ -17,6 +18,8 @@ module.exports = merge(baseConfig, {
 
     // Это сообщает что в серверной сборке следует использовать экспорты в стиле Node
     output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'server.bundle.js',
         libraryTarget: 'commonjs2'
     },
 
@@ -34,7 +37,7 @@ module.exports = merge(baseConfig, {
     // Этот плагин преобразует весь результат серверной сборки
     // в один JSON-файл. Имя по умолчанию будет
     // `vue-ssr-server-bundle.json`
-    plugins: [
-        new VueSSRServerPlugin()
-    ]
+    // plugins: [
+    //     new VueSSRServerPlugin()
+    // ]
 })

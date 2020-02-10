@@ -13,7 +13,7 @@
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
     "vue-meta": "^2.3.2",
-    "vue-server-renderer": "^2.6.11"
+    "vue-server-renderer": "^2.5.13"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

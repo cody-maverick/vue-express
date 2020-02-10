@@ -1,5 +1,5 @@
 
-import {createApp} from './app'
+import {createApp} from './app.js'
 
 export default context => {
     // поскольку могут быть асинхронные хуки маршрута или компоненты,
@@ -8,6 +8,7 @@ export default context => {
     return new Promise((resolve, reject) => {
         const { app, router } = createApp()
 
+        console.log(context)
         // устанавливаем маршрут для маршрутизатора серверной части
         router.push(context.url)
 
@@ -15,6 +16,8 @@ export default context => {
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents()
             // нет подходящих маршрутов, отклоняем с 404
+
+
             if (!matchedComponents.length) {
                 return reject({ code: 404 })
             }
@@ -22,5 +25,7 @@ export default context => {
             // Promise должен разрешиться экземпляром приложения, который будет отрендерен
             resolve(app)
         }, reject)
+    }).catch(err => {
+        console.log('Ошибка:', err)
     })
 }

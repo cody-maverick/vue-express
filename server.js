@@ -1,47 +1,53 @@
 const express = require('express');
-const app = express();
+const server = express();
 const path = require('path');
-const {createBundleRenderer} = require('vue-server-renderer')
-const clientManifest = require('./dist/vue-ssr-client-manifest.json')
-const template = require('fs').readFileSync(path.join(__dirname, './public/ssrhtml.html'), 'utf-8')
+const {createRenderer} = require('vue-server-renderer')
+// const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+const bundle = require('./dist/server.bundle.js');
+const template = require('fs').readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
 
-app.use(express.static(path.join(__dirname, '/dist')));
+server.use(express.static(path.join(__dirname, '/dist')));
 
-const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
+// const JSONforServer = require('./dist/vue-ssr-server-bundle.json')
 
 
-
-const renderer = createBundleRenderer(JSONforServer, {
-    runInNewContext: false, // рекомендуется
-    inject: false,
+const renderer = createRenderer({
+    // runInNewContext: true, // рекомендуется
+    // inject: false,
     template,
-    clientManifest
 })
 
-
-// app.use((error, req, res, next) => {
-//     // Ошибка, выдаваемая в ответ на неправильно сформированный запрос
-//     console.log(error, req, res, next);
-// });
 
 // const createApp = require('./dist/main.js')
 
-app.get('*', (req, res) => {
-    const context = {url: req.url}
+server.get('*', (req, res) => {
+    // const context = {url: req.url}
     // const appVue = createApp(context)
 
-    renderer.renderToString(context, (err, html) => {
+    bundle.default({url: req.url}).then((app) => {
+        const context = {
+            title: 'Vue JS - Server Render',
+            meta: `
+        <meta description="vuejs server side render">
+      `
+        };
 
-        // обработка ошибок...
-        if (err) {
-            console.log("Ошибка:", err)
-        }
-        // console.log("Html:", html)
-        res.send(html)
+        renderer.renderToString(app, context, function (err, html) {
+            // обработка ошибок...
+            if (err) {
+                console.log("Ошибка:", err)
+            }
+            // console.log("Html:", html)
+            res.end(html)
+        }, err => {
+            console.log(err)
+        })
     })
+
+
 })
 
 
-app.listen(2000, () => {
+server.listen(4000, () => {
     console.log('Сервер запущен')
 });

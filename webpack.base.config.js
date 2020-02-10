@@ -5,7 +5,11 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
     mode: 'production',
     entry: './src/app.js',
-
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        publicPath: '/dist/',
+        filename: 'main.js'
+    },
     module: {
         rules: [
             {
@@ -19,7 +23,8 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                exclude: /node_modules/
             },
             {
                 test: /\.scss$/i,
@@ -39,11 +44,20 @@ module.exports = {
         ],
 
     },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['*', '.js', '.vue', '.json']
+    },
+    performance: {
+        hints: false
+    },
     devtool: 'inline-source-map',
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./public/index.html"
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: "./public/index.html"
+        // }),
         new VueLoaderPlugin()
     ],
 
