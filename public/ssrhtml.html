@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html {{ htmlAttrs.text(true) }}>
+<head {{ headAttrs.text() }}>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{{ meta.inject().title.text() }}}
-    {{{ meta.inject().meta.text() }}}
-    {{{ renderResourceHints() }}}
-    {{{ renderStyles() }}}
+    {{ head(true) }}
 </head>
-<body>
-<div id="app"><!--vue-ssr-outlet--></div>
-{{{ renderState() }}}
-{{{ renderScripts() }}}
+<body {{ bodyAttrs.text() }}>
+
+{{ bodyPrepend(true) }}
+{{ app }}
+
+<!--vue-ssr-outlet-->
+<script src="../dist/main.js"></script>
+{{ bodyAppend(true) }}
+
 </body>
 </html>

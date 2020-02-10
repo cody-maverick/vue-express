@@ -3,13 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: './src/app.js',
+
     module: {
         rules: [
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
+                options: {
+                    // включаем извлечение CSS
+                    extractCSS: true
+                }
 
             },
             {
@@ -19,7 +24,7 @@ module.exports = {
             {
                 test: /\.scss$/i,
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
@@ -27,7 +32,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
                     'css-loader'
                 ]
             }

@@ -6,12 +6,17 @@ import VueRouter
     from 'vue-router'
 import {createRouter}
     from './components/router.js'
+import Meta from 'vue-meta'
 
 Vue.use(VueRouter)
+Vue.use(Meta)
 
-export function createApp() {
+
+export function createApp(context) {
     // Создаём экземпляр маршрутизатора
-    const router = createRouter();
+
+
+    const router = createRouter(context);
     const app = new Vue({
         // внедряем маршрутизатор в корневой экземпляр Vue
         router,
