@@ -20,7 +20,7 @@ const createRenderer = (bundle) => createBundleRenderer(bundle, {
 let renderer;
 
 if (process.env.NODE_ENV === 'development') {
-    setupDevServer(app, (serverBundle) => {
+    setupDevServer(server, (serverBundle) => {
         renderer = createRenderer(serverBundle);
     });
 } else {
