@@ -5,7 +5,7 @@ export default context => {
     // мы будем возвращать Promise, чтобы сервер смог дожидаться
     // пока всё не будет готово к рендерингу.
     return new Promise((resolve, reject) => {
-        const {app, router} = createApp(context)
+        const {app, router} = createApp()
         // устанавливаем маршрут для маршрутизатора серверной части
         // metadata is provided by vue-meta plugin
         const meta = app.$meta();

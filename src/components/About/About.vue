@@ -4,7 +4,23 @@
 
 <script>
     export default {
-        name: "About"
+        name: "About",
+        metaInfo: {
+            title: 'About',
+            titleTemplate: '%s - Webpack!',
+            meta: [
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: 'Hello World'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Hello World'
+                }
+            ]
+        }
     }
 </script>
 

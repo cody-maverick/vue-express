@@ -31,44 +31,19 @@ server.use(compression());
 server.use(express.static(path.join(__dirname, '/dist')));
 server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-// server.get('*', (req, res) => {
-//     bundle.default({url: req.url}).then((app) => {
-//         const context = {
-//             title: 'Vue JS - Server Render',
-//             meta: `<meta description="vuejs server side render">`
-//         };
-//
-//         renderer.renderToString(app, context, function (err, html) {
-//             // обработка ошибок...
-//             if (err) {
-//                 if (err.code === 404) {
-//                     res.status(404).end('Page not found')
-//                 } else {
-//                     res.status(500).end('Internal Server Error')
-//                 }
-//             } else {
-//                 res.end(html)
-//             }
-//         }, err => {
-//             console.log(err)
-//         })
-//     })
-// })
-
 server.get('*', async (req, res) => {
     console.log(req.url)
     const context = {
         url: req.url || '/',
-        // state: {
-        //     title: 'Vue SSR Simple setup'
-        // }
+        state: {
+            title: 'Vue SSR Simple setup'
+        }
     }
 
     let html;
 
     try {
         html = await renderer.renderToString(context);
-        console.log(html)
     } catch (err) {
         console.log(err)
         if (err.code === 404) {

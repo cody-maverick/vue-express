@@ -5,7 +5,7 @@
   "scripts": {
     "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
     "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
-    "server": "node server"
+    "server": "cross-env NODE_ENV=development node server"
   },
   "dependencies": {
     "core-js": "^3.4.4",

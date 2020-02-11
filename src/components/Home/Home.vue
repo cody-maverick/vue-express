@@ -1,10 +1,27 @@
 <template>
-    <h3>Home</h3>
+    <h3>
+        Home</h3>
 </template>
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        metaInfo: {
+            title: 'Home',
+            titleTemplate: '%s - Webpack!',
+            meta: [
+                {
+                    hid: 'og:title',
+                    name: 'og:title',
+                    content: 'Hello World'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Hello World'
+                }
+            ]
+        }
     }
 </script>
 
