@@ -1,8 +1,8 @@
-const merge = require('webpack-merge')
-const path = require('path')
-const nodeExternals = require('webpack-node-externals')
-const baseConfig = require('./webpack.base.config.js')
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+const path = require('path');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.config.js');
+const nodeExternals = require('webpack-node-externals');
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
 module.exports = merge(baseConfig, {
     // Укажите точку входа серверной части вашего приложения
@@ -14,12 +14,12 @@ module.exports = merge(baseConfig, {
     target: 'node',
 
     // Для поддержки source map в bundle renderer
-    devtool: 'source-map',
+    // devtool: 'source-map',
 
     // Это сообщает что в серверной сборке следует использовать экспорты в стиле Node
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: 'server.bundle.js',
+        // path: path.resolve(__dirname, './dist'),
+        // filename: 'server.bundle.js',
         libraryTarget: 'commonjs2'
     },
 
@@ -37,7 +37,7 @@ module.exports = merge(baseConfig, {
     // Этот плагин преобразует весь результат серверной сборки
     // в один JSON-файл. Имя по умолчанию будет
     // `vue-ssr-server-bundle.json`
-    // plugins: [
-    //     new VueSSRServerPlugin()
-    // ]
+    plugins: [
+        new VueSSRServerPlugin()
+    ]
 })

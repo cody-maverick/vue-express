@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "run": "webpack --development"
+    "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
+    "server": "node server"
   },
   "dependencies": {
     "core-js": "^3.4.4",
@@ -18,9 +18,14 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
+    "autoprefixer": "^9.7.4",
     "babel-loader": "^8.0.6",
+    "cross-env": "^7.0.0",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
+    "memory-fs": "^0.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
     "sass": "^1.23.7",
     "sass-loader": "^8.0.2",
     "serve-favicon": "^2.5.0",
@@ -30,6 +35,8 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack-cli": "^3.3.10",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   }

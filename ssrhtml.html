@@ -1,13 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- use triple mustache for non-HTML-escaped interpolation -->
-    {{{ meta }}}
-    <!-- use double mustache for HTML-escaped interpolation -->
-    <title>{{ title }}</title>
+    {{{ meta.inject().title.text() }}}
+    {{{ meta.inject().meta.text() }}}
+<!--    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="./main.css">
+
 </head>
 <body>
-<!--vue-ssr-outlet-->
-<script src="./main.js"></script>
+<div id="app">
+    <!--vue-ssr-outlet-->
+</div>
+<script async src="./main.js"></script>
 </body>
 </html>

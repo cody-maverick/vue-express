@@ -1,4 +1,3 @@
-
 import {createApp} from './app.js'
 
 export default context => {
@@ -6,9 +5,12 @@ export default context => {
     // мы будем возвращать Promise, чтобы сервер смог дожидаться
     // пока всё не будет готово к рендерингу.
     return new Promise((resolve, reject) => {
-        const { app, router } = createApp()
+        const {app, router} = createApp(context)
         // устанавливаем маршрут для маршрутизатора серверной части
-        router.push(context.url)
+        // metadata is provided by vue-meta plugin
+        const meta = app.$meta();
+        router.push(context.url);
+        context.meta = meta;
 
         // ожидаем, пока маршрутизатор разрешит возможные асинхронные компоненты и хуки
         router.onReady(() => {
@@ -16,7 +18,7 @@ export default context => {
             // нет подходящих маршрутов, отклоняем с 404
 
             if (!matchedComponents.length) {
-                return reject({ code: 404 })
+                return reject({code: 404})
             }
 
             // Promise должен разрешиться экземпляром приложения, который будет отрендерен

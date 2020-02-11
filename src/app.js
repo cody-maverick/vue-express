@@ -6,15 +6,16 @@ import VueRouter
     from 'vue-router'
 import {createRouter}
     from './components/router.js'
-import Meta from 'vue-meta'
+import Meta
+    from 'vue-meta'
 
 Vue.use(VueRouter)
-// Vue.use(Meta)
+Vue.use(Meta, {
+    ssrAppId: 1
+});
 
-
-export function createApp() {
+export const createApp = context => {
     // Создаём экземпляр маршрутизатора
-
 
     const router = createRouter();
     const app = new Vue({
