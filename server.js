@@ -1,16 +1,19 @@
 const express = require('express');
 const server = express();
-const compression = require('compression')
-const path = require('path');
-const {createRenderer} = require('vue-server-renderer')
-const bundle = require('./dist/server.bundle.js');
-const fs = require('fs')
-const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8')
-const favicon = require('serve-favicon')
+const compression = require('compression');
 
-server.use(compression())
+const path = require('path');
+const fs = require('fs');
+
+const {createRenderer} = require('vue-server-renderer');
+const bundle = require('./dist/server.bundle.js');
+const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8');
+
+const favicon = require('serve-favicon');
+
+server.use(compression());
 server.use(express.static(path.join(__dirname, '/dist')));
-server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 const renderer = createRenderer({
     // runInNewContext: true, // рекомендуется
     // // inject: false,
@@ -18,15 +21,11 @@ const renderer = createRenderer({
 })
 
 server.get('*', (req, res) => {
-    // const context = {url: req.url}
-    // const appVue = createApp(context)
 
     bundle.default({url: req.url}).then((app) => {
         const context = {
             title: 'Vue JS - Server Render',
-            meta: `
-        <meta description="vuejs server side render">
-      `
+            meta: `<meta description="vuejs server side render">`
         };
 
         renderer.renderToString(app, context, function (err, html) {
