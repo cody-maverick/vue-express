@@ -10,6 +10,8 @@
         from '../Nav/Nav.vue'
     import Content
         from '../Content/Content.vue'
+    // import '../../assets/_vars.scss'
+    import '../../assets/_global.scss'
 
     export default {
         name: 'App',

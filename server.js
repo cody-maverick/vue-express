@@ -44,8 +44,6 @@ server.get('*', (req, res) => {
             console.log(err)
         })
     })
-
-
 })
 
 

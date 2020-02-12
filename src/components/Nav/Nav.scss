@@ -7,6 +7,8 @@
     position: relative;
     transform: translateX(-100%);
     transition: 0.4s ease-in-out;
+    z-index: 2;
+
 
     &__active {
       transform: translateX(0%)
@@ -14,14 +16,15 @@
   }
 
   &-button {
-    background: #00a7bf;
+    background: #82bf30;
     color: #fff;
     position: absolute;
     left: 100%;
     border: none;
     width: 50px;
     height: 50px;
-    transform: translateX(0)
+    transform: translateX(0);
+    outline: none;
   }
 }
 

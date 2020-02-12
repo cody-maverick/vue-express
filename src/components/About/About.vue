@@ -1,5 +1,9 @@
 <template>
-    <h3>About</h3>
+    <div class="about-section">
+        <h3>
+            About About About About About About About About About About About</h3>
+    </div>
+
 </template>
 
 <script>
@@ -8,6 +12,6 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped
+       src="./About.scss">
 </style>

@@ -1,0 +1,6 @@
+@import '../../assets/_vars.scss';
+
+.home-section {
+  @extend %section;
+  //background: #4c0000;
+}

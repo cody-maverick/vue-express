@@ -1,7 +1,12 @@
 <template>
+
     <div class="content">
-        <router-view>
-        </router-view>
+        <transition
+                name="content"
+                mode="out-in">
+            <router-view>
+            </router-view>
+        </transition>
     </div>
 </template>
 
@@ -11,6 +16,6 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped
+       src="./Content.scss">
 </style>
