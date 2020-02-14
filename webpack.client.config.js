@@ -12,8 +12,10 @@ module.exports = merge(baseConfig, {
     output: {
         sourceMapFilename: '[name].js.map',
 
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: '/public/',
+        // path: path.resolve(__dirname, '../dist'),
+        // publicPath: '/public/',
+        path: path.resolve(__dirname, './dist'),
+        publicPath: '/dist/',
         filename: 'main.js'
     },
     module: {
@@ -54,7 +56,7 @@ module.exports = merge(baseConfig, {
             })
         ],
     devServer: {
-        contentBase: path.join(__dirname, '../public'),
+        contentBase: path.join(__dirname, '/dist'),
         compress: true,
         port: 9000,
         liveReload: true

@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "npm run dev:client && npm run dev-server",
-    "build:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
-    "dev:client": "cross-env NODE_ENV=production webpack --config ./config/webpack.client.config.js",
-    "dev:server": "cross-env NODE_ENV=production webpack --config ./config/webpack.server.config.js",
+    "build:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
+    "dev:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js",
+    "dev:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "server": "node server",
-    "dev-server": "webpack-dev-server --config ./config/webpack.client.config.js"
+    "dev-server": "webpack-dev-server --config webpack.client.config.js"
   },
   "dependencies": {
     "core-js": "^3.4.4",
