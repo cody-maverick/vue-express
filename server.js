@@ -6,9 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const {createBundleRenderer} = require('vue-server-renderer');
-// const bundle = require('./dist/server.bundle.js');
 const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8');
-const setupDevServer = require('./config/setup-dev-server');
 
 const favicon = require('serve-favicon');
 
@@ -17,15 +15,7 @@ const createRenderer = (bundle) => createBundleRenderer(bundle, {
     template
 });
 
-let renderer;
-
-if (process.env.NODE_ENV === 'development') {
-    setupDevServer(server, (serverBundle) => {
-        renderer = createRenderer(serverBundle);
-    });
-} else {
-    renderer = createRenderer(require('./dist/vue-ssr-server-bundle.json'));
-}
+let renderer = createRenderer(require('./dist/vue-ssr-server-bundle.json'));
 
 server.use(compression());
 server.use(express.static(path.join(__dirname, '/dist')));
