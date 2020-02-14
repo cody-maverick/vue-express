@@ -52,7 +52,7 @@ module.exports = merge(baseConfig, {
                 filename: '[name].css',
             }),
             new HtmlWebpackPlugin({
-                filename: '../public/index.html'
+                filename: 'index.html'
             })
         ],
     devServer: {
