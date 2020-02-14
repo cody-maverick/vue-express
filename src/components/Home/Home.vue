@@ -21,6 +21,9 @@
                     content: 'Hello World'
                 }
             ]
+        },
+        mounted() {
+            console.log('dddddddddddd')
         }
     }
 </script>

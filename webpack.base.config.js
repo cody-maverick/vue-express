@@ -1,6 +1,7 @@
-const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const autoprefixer = require('autoprefixer');
+
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -10,34 +11,49 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
+                // options: {
+                //     sourceMap: IS_DEV
+                // }
             },
             {
                 test: /\.js$/,
                 loader: "babel-loader",
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                // options: {
+                //     sourceMap: IS_DEV
+                // }
             },
             {
-                test: /\.s?css$/i,
+                test: /\.s?css$/,
                 use: [
-                    {
-                        loader: 'vue-style-loader',
-                        options: {sourceMap: IS_DEV}
-                    },
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        options: {sourceMap: IS_DEV}
+                        // options: {
+                        //     sourceMap: IS_DEV
+                        // }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [autoprefixer]
+                        }
                     },
                     {
                         loader: 'sass-loader',
-                        options: {sourceMap: IS_DEV}
+                        // options: {
+                        //     sourceMap: IS_DEV
+                        // }
                     },
-                ]
+                ],
             },
         ],
-
     },
-    devtool: IS_DEV ? 'source-map' : '',
+    devtool: 'source-map',
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
         new VueLoaderPlugin()
     ]
 }

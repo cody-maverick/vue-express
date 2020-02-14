@@ -11,6 +11,7 @@
     "dev:client": "cross-env NODE_ENV=development webpack --config webpack.client.config.js",
     "dev:server": "cross-env NODE_ENV=development webpack --config webpack.server.config.js",
     "server": "node server",
+    "server-development": "cross-env NODE_ENV=development node server",
     "dev-server": "webpack-dev-server --config webpack.client.config.js"
   },
   "dependencies": {

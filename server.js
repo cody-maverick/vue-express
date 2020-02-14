@@ -1,6 +1,11 @@
 const express = require('express');
 const server = express();
 const compression = require('compression');
+const webpack = require('webpack');
+const NODE_ENV = process.env.NODE_ENV;
+const config = require('./webpack.client.config')
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const compiler = webpack(config);
 
 const path = require('path');
 const fs = require('fs');
@@ -21,13 +26,24 @@ server.use(compression());
 server.use(express.static(path.join(__dirname, '/dist')));
 server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
+if (NODE_ENV === 'development') {
+    server.use(webpackDevMiddleware(compiler, {
+        publicPath: config.output.publicPath,
+        logLevel: 'warn'
+    }));
+
+    server.use(require("webpack-hot-middleware")(compiler, {
+        log: console.log,
+        path: '/__webpack_hmr',
+        heartbeat: 2000
+    }));
+}
+
 server.get('*', async (req, res) => {
     console.log(req.url)
     const context = {
         url: req.url || '/',
-        state: {
-            title: 'Vue SSR Simple setup'
-        }
+
     }
 
     let html;
