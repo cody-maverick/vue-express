@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
     target: 'node',
 
     // Для поддержки source map в bundle renderer
-    // devtool: 'source-map',
+    devtool: 'source-map',
 
     // Это сообщает что в серверной сборке следует использовать экспорты в стиле Node
     output: {

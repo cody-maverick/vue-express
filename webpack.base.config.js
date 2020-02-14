@@ -19,9 +19,9 @@ module.exports = {
                 test: /\.js$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
-                // options: {
-                //     sourceMap: IS_DEV
-                // }
+                options: {
+                    sourceMap: IS_DEV
+                }
             },
             {
                 test: /\.s?css$/,
@@ -29,9 +29,9 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
-                        // options: {
-                        //     sourceMap: IS_DEV
-                        // }
+                        options: {
+                            sourceMap: IS_DEV
+                        }
                     },
                     {
                         loader: 'postcss-loader',
@@ -41,15 +41,15 @@ module.exports = {
                     },
                     {
                         loader: 'sass-loader',
-                        // options: {
-                        //     sourceMap: IS_DEV
-                        // }
+                        options: {
+                            sourceMap: IS_DEV
+                        }
                     },
                 ],
             },
         ],
     },
-    devtool: 'source-map',
+    // devtool: 'source-map',
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',

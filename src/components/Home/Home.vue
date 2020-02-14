@@ -1,6 +1,6 @@
 <template>
     <h3>
-        Home</h3>
+        Ho</h3>
 </template>
 
 <script>
