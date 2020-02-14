@@ -11,6 +11,7 @@ module.exports = merge(baseConfig, {
     entry: './src/entry-client.js',
     output: {
         path: path.resolve(process.cwd(), 'dist'),
+        publicPath: (__dirname + '/dist'),
         filename: '[name].js',
         sourceMapFilename: '[name].js.map',
     },
@@ -50,5 +51,11 @@ module.exports = merge(baseConfig, {
             new HtmlWebpackPlugin({
                 filename: '../public/index.html'
             })
-        ]
+        ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000,
+        liveReload: true
+    }
 })
