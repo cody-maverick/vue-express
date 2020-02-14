@@ -1,7 +1,7 @@
 const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const isProduction = process.env.NODE_ENV === 'production';
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -19,15 +19,24 @@ module.exports = {
             {
                 test: /\.s?css$/i,
                 use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    {
+                        loader: 'vue-style-loader',
+                        options: {sourceMap: IS_DEV}
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {sourceMap: IS_DEV}
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {sourceMap: IS_DEV}
+                    },
                 ]
             },
         ],
 
     },
-    devtool: isProduction ? 'source-map' : 'eval-source-map',
+    devtool: IS_DEV ? 'source-map' : '',
     plugins: [
         new VueLoaderPlugin()
     ]
