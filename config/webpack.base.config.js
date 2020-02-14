@@ -5,12 +5,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: './src/app.js',
-    // output: {
-    //     path: path.resolve(__dirname, './dist'),
-    //     publicPath: '/dist/',
-    //     filename: 'main.js'
-    // },
     module: {
         rules: [
             {
@@ -23,20 +17,13 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.scss$/i,
+                test: /\.s?css$/i,
                 use: [
                     'vue-style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
             },
-            {
-                test: /\.css$/i,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ]
-            }
         ],
 
     },
