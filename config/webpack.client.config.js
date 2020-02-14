@@ -10,10 +10,11 @@ const autoprefixer = require('autoprefixer');
 module.exports = merge(baseConfig, {
     entry: './src/entry-client.js',
     output: {
-        path: path.resolve(process.cwd(), 'dist'),
-        publicPath: (__dirname + '/dist'),
-        filename: '[name].js',
         sourceMapFilename: '[name].js.map',
+
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: '/public/',
+        filename: 'main.js'
     },
     module: {
         rules: [
@@ -53,7 +54,7 @@ module.exports = merge(baseConfig, {
             })
         ],
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, '../public'),
         compress: true,
         port: 9000,
         liveReload: true
