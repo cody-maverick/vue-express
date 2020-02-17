@@ -2,13 +2,15 @@
   height: 100%;
   background: #8f8ece;
   left: -100%;
+  min-width: 150px;
 
   &-wrapper {
     position: relative;
     transform: translateX(-100%);
     transition: 0.4s ease-in-out;
+    z-index: 2;
 
-    &__active {
+    &--active {
       transform: translateX(0%)
     }
   }

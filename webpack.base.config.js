@@ -26,7 +26,12 @@ module.exports = {
             {
                 test: /\.s?css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'vue-style-loader',
+                        options: {
+                            sourceMap: IS_DEV
+                        }
+                    },
                     {
                         loader: 'css-loader',
                         options: {
@@ -51,9 +56,9 @@ module.exports = {
     },
     // devtool: 'source-map',
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].css',
-        }),
+        // new MiniCssExtractPlugin({
+        //     filename: '[name].css',
+        // }),
         new VueLoaderPlugin()
     ]
 }

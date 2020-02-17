@@ -11,6 +11,6 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped
+       src="./Content.scss">
 </style>
