@@ -24,7 +24,5 @@ export default context => {
             // Promise должен разрешиться экземпляром приложения, который будет отрендерен
             resolve(app)
         }, reject)
-    }).catch(err => {
-        console.log('Ошибка:', err)
     })
 }

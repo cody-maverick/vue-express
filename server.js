@@ -51,7 +51,6 @@ server.get('*', async (req, res) => {
     try {
         html = await renderer.renderToString(context);
     } catch (err) {
-        console.log(err)
         if (err.code === 404) {
             return res.status(404).send('404 | Page Not Found');
         }
@@ -60,7 +59,6 @@ server.get('*', async (req, res) => {
 
     res.end(html)
 })
-
 
 server.listen(5000, () => {
     console.log('Сервер запущен')

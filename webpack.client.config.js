@@ -7,8 +7,10 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 
 const webpack = require('webpack')
 
+let entryArray = IS_DEV ? ['./src/entry-client.js', 'webpack-hot-middleware/client'] : ['./src/entry-client.js'];
+
 module.exports = merge(baseConfig, {
-    entry: ['./src/entry-client.js', 'webpack-hot-middleware/client'],
+    entry: entryArray,
     output: {
         filename: '[name].js',
         sourceMapFilename: '[name].js.map',
@@ -16,9 +18,7 @@ module.exports = merge(baseConfig, {
         publicPath: '/dist/',
     },
     module: {
-        rules: [
-
-        ]
+        rules: []
     },
     plugins:
         [

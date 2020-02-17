@@ -10,9 +10,8 @@
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "dev:client": "cross-env NODE_ENV=development webpack --config webpack.client.config.js",
     "dev:server": "cross-env NODE_ENV=development webpack --config webpack.server.config.js",
-    "server": "node server",
-    "server-development": "cross-env NODE_ENV=development node server",
-    "dev-server": "webpack-dev-server --config webpack.client.config.js"
+    "server": "cross-env NODE_ENV=production nodemon server",
+    "server-development": "cross-env NODE_ENV=development nodemon server"
   },
   "dependencies": {
     "core-js": "^3.4.4",
