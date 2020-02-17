@@ -1,6 +1,6 @@
 <template>
     <h3>
-        Home</h3>
+        Homsfdfdfdsfsd</h3>
 </template>
 
 <script>
@@ -23,7 +23,7 @@
             ]
         },
         mounted() {
-            console.log('dddddddddddd')
+            console.log('ddddsfsregergrd')
         }
     }
 </script>

@@ -4,14 +4,14 @@
   "private": true,
   "package-lock": false,
   "scripts": {
-    "dev": "npm run dev:client && npm run dev-server",
+    "dev": "npm run dev:client && npm run server-development",
     "build": "npm run build:client && npm run build:server && npm run server",
     "build:client": "cross-env NODE_ENV=production webpack --config webpack.client.config.js",
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "dev:client": "cross-env NODE_ENV=development webpack --config webpack.client.config.js",
     "dev:server": "cross-env NODE_ENV=development webpack --config webpack.server.config.js",
     "server": "cross-env NODE_ENV=production nodemon server",
-    "server-development": "cross-env NODE_ENV=development nodemon server"
+    "server-development": "cross-env NODE_ENV=development node server"
   },
   "dependencies": {
     "core-js": "^3.4.4",
