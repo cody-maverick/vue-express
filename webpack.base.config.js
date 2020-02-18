@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const autoprefixer = require('autoprefixer');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -12,7 +13,8 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 // options: {
-                //     sourceMap: IS_DEV
+                //     // включаем извлечение CSS
+                //     extractCSS: IS_PROD
                 // }
             },
             {
