@@ -11,11 +11,7 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                // options: {
-                //     // включаем извлечение CSS
-                //     extractCSS: IS_PROD
-                // }
+                loader: 'vue-loader'
             },
             {
                 test: /\.js$/,
