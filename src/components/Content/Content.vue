@@ -1,7 +1,11 @@
 <template>
     <div class="content">
-        <router-view>
-        </router-view>
+        <transition
+                enter-active-class="router-animation animated fadeInDown"
+                leave-active-class="router-animation animated fadeOutDown"
+                mode="out-in">
+            <router-view/>
+        </transition>
     </div>
 </template>
 
