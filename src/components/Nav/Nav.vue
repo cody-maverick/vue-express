@@ -17,7 +17,6 @@
                             :to="path"
                             class="nav-list__link"
                             active-class="nav-list__link--active"
-
                             exact>
                         {{name}}
                     </router-link>

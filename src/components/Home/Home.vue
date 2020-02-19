@@ -1,19 +1,240 @@
 <template>
     <div>
-        <h3>Home</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid asperiores molestiae molestias, nisi nulla quo quod vero! A alias consectetur consequatur doloremque ea enim hic inventore iusto nihil soluta.</p>
+        <h3>
+            Home</h3>
+
+            <div>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+                <p>
+                    Lorem
+                    ipsum
+                    dolor
+                    sit
+                    amet,
+                    consectetur
+                    adipisicing
+                    elit.
+                    A
+                    aliquid
+                    asperiores
+                    molestiae
+                    molestias,
+                    nisi
+                    nulla
+                    quo
+                    quod
+                    vero!
+                    A
+                    alias
+                    consectetur
+                    consequatur
+                    doloremque
+                    ea
+                    enim
+                    hic
+                    inventore
+                    iusto
+                    nihil
+                    soluta.</p>
+
+            </div>
+
     </div>
 </template>
 
 <script>
+
+
     export default {
         name: "Home",
+        components: {
+
+        },
         metaInfo: {
             title: 'Home',
             titleTemplate: '%s - Webpack!',
@@ -37,5 +258,6 @@
 </script>
 
 <style scoped>
+
 
 </style>

@@ -15,16 +15,21 @@
 </template>
 
 <script>
+    import simplebar
+        from 'simplebar-vue'
+    import 'simplebar/dist/simplebar.min.css';
     import Nav
         from '../Nav/Nav.vue'
     import Content
         from '../Content/Content.vue'
 
+
     export default {
         name: 'App',
         components: {
             Nav,
-            Content
+            Content,
+            simplebar
         },
         data: function () {
             return {
