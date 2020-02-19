@@ -60,5 +60,6 @@ server.get('*', async (req, res) => {
 })
 
 server.listen(5000, () => {
-    console.log('Сервер запущен')
+    let serverName = NODE_ENV === 'development' ? 'Development' : 'Production';
+    console.log(`${serverName} сервер запущен`)
 });

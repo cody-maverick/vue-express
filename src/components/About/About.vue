@@ -1,5 +1,5 @@
 <template>
-    <h3>Aboyt</h3>
+    <h3>About</h3>
 </template>
 
 <script>
