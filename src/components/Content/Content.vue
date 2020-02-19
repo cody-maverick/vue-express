@@ -1,10 +1,11 @@
 <template>
     <simplebar
+            data-simplebar
             data-simplebar-auto-hide="false">
         <div class="content">
             <transition
-                    enter-active-class="router-animation animated fadeInDown"
-                    leave-active-class="router-animation animated fadeOutDown"
+                    enter-active-class="router-animation animated fadeIn"
+                    leave-active-class="router-animation animated fadeOut"
                     mode="out-in">
                 <router-view/>
             </transition>

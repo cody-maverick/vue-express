@@ -23,7 +23,6 @@
     import Content
         from '../Content/Content.vue'
 
-
     export default {
         name: 'App',
         components: {
@@ -44,6 +43,8 @@
                 this.show = false;
                 this.$refs.nav.closeNav();
             }
+        },
+        mounted: function () {
         }
 
     }
