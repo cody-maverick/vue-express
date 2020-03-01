@@ -3,7 +3,7 @@ const server = express();
 const compression = require('compression');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV;
-const config = require('./webpack.client.config')
+const config = require('./webpack.client.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const compiler = webpack(config);
 
@@ -11,11 +11,11 @@ const path = require('path');
 const fs = require('fs');
 
 const {createBundleRenderer} = require('vue-server-renderer');
-const template = fs.readFileSync(path.join(__dirname, 'ssrhtml.html'), 'utf-8');
+const template = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
 
 const favicon = require('serve-favicon');
 
-const createRenderer = (bundle) => createBundleRenderer(bundle, {
+const createRenderer = bundle => createBundleRenderer(bundle, {
     runInNewContext: false,
     template
 });
@@ -24,7 +24,7 @@ let renderer = createRenderer(require('./dist/vue-ssr-server-bundle.json'));
 
 server.use(compression());
 server.use(express.static(path.join(__dirname, '/dist')));
-server.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+server.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 if (NODE_ENV === 'development') {
     server.use(webpackDevMiddleware(compiler, {

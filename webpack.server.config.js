@@ -1,4 +1,3 @@
-const path = require('path');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config.js');
 const nodeExternals = require('webpack-node-externals');
@@ -18,8 +17,6 @@ module.exports = merge(baseConfig, {
 
     // Это сообщает что в серверной сборке следует использовать экспорты в стиле Node
     output: {
-        // path: path.resolve(__dirname, './dist'),
-        // filename: 'server.bundle.js',
         libraryTarget: 'commonjs2'
     },
 

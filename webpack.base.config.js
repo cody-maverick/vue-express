@@ -1,9 +1,9 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const autoprefixer = require('autoprefixer');
 
 const IS_DEV = process.env.NODE_ENV === 'development';
-const IS_PROD = process.env.NODE_ENV === 'production';
+// const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -52,11 +52,7 @@ module.exports = {
             },
         ],
     },
-    // devtool: 'source-map',
     plugins: [
-        // new MiniCssExtractPlugin({
-        //     filename: '[name].css',
-        // }),
         new VueLoaderPlugin()
     ]
 }

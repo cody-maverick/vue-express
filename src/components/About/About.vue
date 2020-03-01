@@ -44,6 +44,9 @@
 <script>
     export default {
         name: "About",
+        data: function () {
+            return {}
+        },
         metaInfo: {
             title: 'About',
             titleTemplate: '%s - Webpack!',
